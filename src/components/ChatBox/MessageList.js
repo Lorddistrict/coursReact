@@ -2,6 +2,7 @@ import React from 'react';
 import MessageItem from "./MessageItem";
 import Theme from "../../Theme";
 import styled from "styled-components";
+import "./MessageList.css";
 
 const Container = styled.div`
     display: flex;

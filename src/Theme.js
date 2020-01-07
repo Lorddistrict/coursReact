@@ -6,8 +6,11 @@ const theme = {
         discordBlue: "#7289da",
         discordWhite: "#ffffff",
         discordLightGrey: "#99aab5",
+        discordChatBox: "#484C52",
         discordGrey: "#2c2f33",
         discordDarkGrey: "#23272a",
+        discordGreenButton: "#42B581",
+
     },
     fonts: ["sans-serif", "Roboto"],
     fontSizes: {

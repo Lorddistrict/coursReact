@@ -10,7 +10,7 @@ const Container = styled.div`
 
 const Insider = styled.div`
     display: flex;
-    width: 400;
+    width: 100%;
     padding: 15px;
     flex-direction: row;
     justify-content: center;
@@ -18,24 +18,23 @@ const Insider = styled.div`
 `;
 
 const Input = styled.input`
-    border-radius: 8px;
+    border-radius: 5px;
     box-shadow: 0;
-    border-color: #000;
-    border-width: 1;
+    border: 1px solid transparent;
     padding: 10px;
     padding-left: 10px;
-    min-width: 250px;
+    width: 90%;
+    background-color: ${props => `${props.theme.colors.discordChatBox}`};
 `;
 
 const Button = styled.button`
-    border-width: 1px;
-    border-color: #1f491a;
-    background-color: transparent;
-    border-radius: 8px;
+    border: 1px solid transparent;
+    border-radius: 5px;
     font-weight: bold;
-    color: #1f491a;
-    padding: 10px;
+    color: ${props => `${props.theme.colors.discordWhite}`};
+    padding: 10px 20px 10px 20px;
     margin-left: 10px;
+    background-color: ${props => `${props.theme.colors.discordGreenButton}`};
 `;
 
 const ActionBar = ({ onMessageSent }) => {
@@ -64,7 +63,7 @@ const ActionBar = ({ onMessageSent }) => {
                         onKeyPress={ handleKeyPress }
                         type="text"
                         name="message"
-                        placeholder="Message"
+                        placeholder="Message #general"
                         value={ message }
                     />
                     <Button onClick={ handleClick }>Send</Button>
