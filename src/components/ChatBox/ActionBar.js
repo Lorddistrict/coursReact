@@ -48,7 +48,7 @@ const Button = styled.button`
     color: ${props => `${props.theme.colors.discordWhite}`};
     padding: 10px 20px 10px 20px;
     margin-left: 10px;
-    background-color: ${props => `${props.theme.colors.discordGreenButton}`};
+    background-color: ${props => `${props.theme.colors.discordGreen}`};
 `;
 
 const ActionBar = ({ onMessageSent }) => {
