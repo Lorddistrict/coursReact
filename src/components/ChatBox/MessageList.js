@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MessageItem from "./MessageItem";
 
-const MessageList = () => {
+const MessageList = (data) => {
 
-    const [messages, setMessage] = useState([
-        { author: 'lorddistrict', text: 'I like potatoes so much !' },
-        { author: 'heat', text: 'How dare you, it tastes so bad !!!' },
-        { author: 'kevkev', text: 'Pref cakes....mmmmh cake' },
-        { author: 'lolipop87', text: 'COOOOKIIIIIIIIES' },
-    ]);
+    const messages = data.messages;
 
     return (
         <div style={{
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            flexDirection: "column"
+            flexDirection: "column",
+            overflowY: "scroll",
+            height: 370
         }}>
             { messages.map((message, i) => {
                 return (
