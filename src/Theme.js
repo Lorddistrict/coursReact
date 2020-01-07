@@ -3,10 +3,11 @@ import { ThemeProvider } from "styled-components";
 
 const theme = {
     colors: {
-        white: "#fff",
-        black: "#000",
-        sand: "#dadbc3",
-        grey: "#bfbfbf"
+        discordBlue: "#7289da",
+        discordWhite: "#ffffff",
+        discordLightGrey: "#99aab5",
+        discordGrey: "#2c2f33",
+        discordDarkGrey: "#23272a",
     },
     fonts: ["sans-serif", "Roboto"],
     fontSizes: {

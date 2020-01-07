@@ -1,8 +1,26 @@
-import React, {useRef, useState} from 'react';
+import React, {useState} from 'react';
 import Header from "./Header";
 import MessageList from "./MessageList";
 import ActionBar from "./ActionBar";
 import Separator from "./Separator";
+import Theme from "../../Theme";
+import styled from "styled-components";
+
+const Container = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    z-index: 5
+`;
+
+const Insider = styled.div`
+    background-color: ${props => `${props.theme.colors.discordGrey}`};
+    width: 60%;
+    height: 80%;
+    border-width: 1px solid transparent;
+`;
 
 const ChatBox = () => {
 
@@ -25,26 +43,16 @@ const ChatBox = () => {
     };
 
     return (
-        <div style={{
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            height: "100vh",
-            zIndex: 5
-        }}>
-            <div style={{
-                backgroundColor: "#b5ffa5",
-                width: 400,
-                borderWidth: 1,
-                borderRadius: 8,
-            }}>
-                <Header/>
-                <MessageList messages={messages} />
-                <Separator/>
-                <ActionBar onMessageSent={onMessageSent} />
-            </div>
-        </div>
+        <Theme>
+            <Container>
+                <Insider>
+                    <Header/>
+                    <MessageList messages={messages} />
+                    <Separator/>
+                    <ActionBar onMessageSent={onMessageSent} />
+                </Insider>
+            </Container>
+        </Theme>
     );
 };
 
