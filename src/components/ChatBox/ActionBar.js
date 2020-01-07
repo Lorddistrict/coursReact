@@ -4,7 +4,7 @@ import Theme from "../../Theme";
 
 const Container = styled.div`
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
 `;
 
