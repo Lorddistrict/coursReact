@@ -9,6 +9,7 @@ const Container = styled.div`
 `;
 
 const Insider = styled.div`
+    position: relative;
     display: flex;
     width: 100%;
     padding: 15px;
@@ -25,6 +26,19 @@ const Input = styled.input`
     padding-left: 10px;
     width: 90%;
     background-color: ${props => `${props.theme.colors.discordChatBox}`};
+    color: ${props => `${props.theme.colors.discordLightGrey}`};
+`;
+
+const EraserButton = styled.button`
+    border-radius: 0;
+    box-shadow: 0;
+    border: 1px solid transparent;
+    background-color: ${props => `${props.theme.colors.discordChatBox}`};
+    color: ${props => `${props.theme.colors.discordLightGrey}`};
+    font-weight: bold;
+    position: absolute;
+    bottom: 38%;
+    right: 105px;
 `;
 
 const Button = styled.button`
@@ -42,6 +56,10 @@ const ActionBar = ({ onMessageSent }) => {
 
     const handleClick = () => {
         onMessageSent(message);
+    };
+
+    const handleEraser = () => {
+        setMessage('');
     };
 
     const handleChange = (event) => {
@@ -66,6 +84,7 @@ const ActionBar = ({ onMessageSent }) => {
                         placeholder="Message #general"
                         value={ message }
                     />
+                    <EraserButton onClick={ handleEraser }>x</EraserButton>
                     <Button onClick={ handleClick }>Send</Button>
                 </Insider>
             </Container>
