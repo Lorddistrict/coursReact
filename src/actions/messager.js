@@ -1,7 +1,6 @@
 import * as types from '../constants/ActionsTypes';
 
-export const addMessage = (message, author) => ({
+export const addMessage = (messageObj) => ({
     type: types.ADD_MESSAGE,
-    message,
-    author
+    messageObj,
 });

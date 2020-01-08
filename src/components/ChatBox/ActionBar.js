@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 import Theme from "../../Theme";
+import { useDispatch } from 'react-redux';
+import { addMessage } from "../../actions/messager";
 
 const Container = styled.div`
     display: flex;
     align-items: flex-end;
     justify-content: center;
 `;
-
 const Insider = styled.div`
     position: relative;
     display: flex;
@@ -17,7 +18,6 @@ const Insider = styled.div`
     justify-content: center;
     align-items: flex-start;
 `;
-
 const Input = styled.input`
     border-radius: 5px;
     box-shadow: 0;
@@ -28,7 +28,6 @@ const Input = styled.input`
     background-color: ${props => `${props.theme.colors.discordChatBox}`};
     color: ${props => `${props.theme.colors.discordLightGrey}`};
 `;
-
 const EraserButton = styled.button`
     border-radius: 0;
     box-shadow: 0;
@@ -40,7 +39,6 @@ const EraserButton = styled.button`
     bottom: 38%;
     right: 105px;
 `;
-
 const Button = styled.button`
     border: 1px solid transparent;
     border-radius: 5px;
@@ -51,24 +49,28 @@ const Button = styled.button`
     background-color: ${props => `${props.theme.colors.discordGreen}`};
 `;
 
-const ActionBar = ({ onMessageSent }) => {
+const ActionBar = () => {
+
+    const dispatch = useDispatch();
+
     const [message, setMessage] = useState('');
 
-    const handleClick = () => {
-        onMessageSent(message);
+    const handleSendMessage = () => {
+        let messageObj = { author: 'Me', text: message };
+        dispatch(addMessage(messageObj));
     };
 
     const handleEraser = () => {
         setMessage('');
     };
 
-    const handleChange = (event) => {
+    const handleTypingMessage = (event) => {
         setMessage(event.target.value);
     };
 
-    const handleKeyPress = (event) => {
+    const handlePressingEnter = (event) => {
         if (event.key === 'Enter') {
-            onMessageSent(message);
+            handleSendMessage();
         }
     };
 
@@ -77,15 +79,15 @@ const ActionBar = ({ onMessageSent }) => {
             <Container>
                 <Insider>
                     <Input
-                        onChange={ handleChange }
-                        onKeyPress={ handleKeyPress }
+                        onChange={ handleTypingMessage }
+                        onKeyPress={ handlePressingEnter }
                         type="text"
                         name="message"
                         placeholder="Message #general"
-                        value={ message }
+                        // value={ message }
                     />
                     <EraserButton onClick={ handleEraser }>x</EraserButton>
-                    <Button onClick={ handleClick }>Send</Button>
+                    <Button onClick={ handleSendMessage }>Send</Button>
                 </Insider>
             </Container>
         </Theme>

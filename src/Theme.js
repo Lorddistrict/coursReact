@@ -9,6 +9,7 @@ const theme = {
         discordChatBox: "#484C52",
         discordGrey: "#2c2f33",
         discordDarkGrey: "#23272a",
+        discordBlack: "#000000",
         discordGreen: "#42B581",
         discordRed: "#E13545",
         discordOrange: "#F26422",
