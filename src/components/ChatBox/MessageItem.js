@@ -40,7 +40,7 @@ const CardInline = styled.div`
 const CardAuthor = styled.span`
     font-weight: bold;
     margin-bottom: 10px;
-    color: ${props => `${props.theme.colors.discordWhite}`};
+    color: ${props => `${props.theme.colors.discordLightYellow}`};
 `;
 const CardDate = styled.span`
     margin-bottom: 10px;

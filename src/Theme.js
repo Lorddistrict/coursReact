@@ -13,6 +13,7 @@ const theme = {
         discordGreen: "#42B581",
         discordRed: "#E13545",
         discordOrange: "#F26422",
+        discordLightYellow: "#fffcc2",
 
     },
     fonts: ["sans-serif", "Roboto"],
