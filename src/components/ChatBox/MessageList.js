@@ -22,8 +22,9 @@ const MessageList = (data) => {
                     return (
                         <MessageItem
                             key={i}
-                            username={message.username}
-                            message={message.message}
+                            username={ message.username }
+                            message={ message.message }
+                            sentAt={ message.sentAt }
                         />
                     )
                 }) }

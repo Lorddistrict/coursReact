@@ -22,10 +22,10 @@ const CardContent = styled.div`
     padding: 5px;
     color: ${props => `${props.theme.colors.discordLightGrey}`};
 `;
-const CardInliner = styled.div`
+const CardHorizontal = styled.div`
     display: flex;
-    flex-direction: column;
     text-align: left;
+    flex-direction: column;
     padding-right: 10px;
 `;
 const CardImage = styled.img`
@@ -34,13 +34,22 @@ const CardImage = styled.img`
     height: 40px;
     width: 40px;
 `;
+const CardInline = styled.div`
+
+`;
 const CardAuthor = styled.span`
     font-weight: bold;
     margin-bottom: 10px;
     color: ${props => `${props.theme.colors.discordWhite}`};
 `;
+const CardDate = styled.span`
+    margin-bottom: 10px;
+    color: ${props => `${props.theme.colors.discordLightGrey}`};
+    font-size: 12px;
+`;
 const CardMessage = styled.span`
     text-align: justify;
+    margin-top: 15px;
 `;
 
 const MessageItem = (props) => {
@@ -50,13 +59,23 @@ const MessageItem = (props) => {
             <Container>
                 <Card>
                     <CardContent>
-                        <CardInliner>
+                        <CardHorizontal>
                             <CardImage src="avatar.png" alt="Profile"/>
-                        </CardInliner>
-                        <CardInliner>
-                            <CardAuthor>@{ props.username }</CardAuthor>
+                        </CardHorizontal>
+                        <CardHorizontal>
+                            <CardInline>
+                                <CardAuthor>@{ props.username }</CardAuthor>
+                                <CardDate>
+                                    &nbsp;at&nbsp;
+                                    {new Intl.DateTimeFormat('en-GB', {
+                                        year: 'numeric',
+                                        month: 'long',
+                                        day: '2-digit'
+                                    }).format(new Date(props.sentAt))}
+                                </CardDate>
+                            </CardInline>
                             <CardMessage>{ props.message }</CardMessage>
-                        </CardInliner>
+                        </CardHorizontal>
                     </CardContent>
                 </Card>
             </Container>
@@ -65,8 +84,9 @@ const MessageItem = (props) => {
 };
 
 MessageItem.propTypes = {
-  author: PropTypes.string.isRequired,
-  message: PropTypes.string.isRequired
+    username: PropTypes.string.isRequired,
+    message: PropTypes.string.isRequired,
+    sentAt: PropTypes.string.isRequired
 };
 
 export default MessageItem;
