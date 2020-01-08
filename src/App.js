@@ -30,16 +30,16 @@ const LoaderContainer = styled.div`
     z-index: 5;
 `;
 
-// const loggerMiddleware(action) => {
-//     console.log('middleware');
-//     next(action);
-// };
+const loggerMiddleware = store => next => action => {
+    console.log('---');
+    console.log(action);
+    next(action);
+};
 
 const store = createStore(
     reducers,
     compose(
-        // applyMiddleware(thunk, loggerMiddleware),
-        applyMiddleware(thunk),
+        applyMiddleware(thunk, loggerMiddleware),
         window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
     )
 );
