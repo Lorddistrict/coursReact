@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Theme from "../../Theme";
 import { useDispatch } from 'react-redux';
 import { addMessage } from "../../actions/messager";
+import {ADD_MESSAGE_ERROR, ADD_MESSAGE_SUCCESS} from "../../constants/ActionsTypes";
 
 const Container = styled.div`
     display: flex;
@@ -56,8 +57,13 @@ const ActionBar = () => {
     const [message, setMessage] = useState('');
 
     const handleSendMessage = () => {
-        let messageObj = { author: 'Me', text: message };
-        dispatch(addMessage(messageObj));
+        if (message !== '') {
+            let messageObj = { username: 'Me', message: message };
+            dispatch(addMessage(messageObj));
+            // todo success
+        } else {
+            // todo error
+        }
     };
 
     const handleEraser = () => {

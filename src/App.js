@@ -40,7 +40,7 @@ function App() {
 
     const loader = setTimeout(() => {
         setLoading(false);
-    }, 2000);
+    }, 100);
 
     return (
         <Provider store={store}>

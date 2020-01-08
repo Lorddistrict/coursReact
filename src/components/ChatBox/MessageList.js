@@ -22,8 +22,8 @@ const MessageList = (data) => {
                     return (
                         <MessageItem
                             key={i}
-                            author={message.author}
-                            message={message.text}
+                            author={message.username}
+                            message={message.message}
                         />
                     )
                 }) }
