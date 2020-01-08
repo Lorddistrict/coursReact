@@ -1,12 +1,12 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect } from 'react';
 import Header from "./Header";
 import MessageList from "./MessageList";
 import ActionBar from "./ActionBar";
 import Separator from "./Separator";
 import Theme from "../../Theme";
 import styled from "styled-components";
-import {useDispatch, useSelector} from "react-redux";
-import {loadMessages} from "../../actions/messager";
+import { useDispatch, useSelector } from "react-redux";
+import { loadMessages } from "../../actions/messageAction";
 
 const Container = styled.div`
     position: relative;
@@ -48,7 +48,7 @@ const ChatBox = (props) => {
         dispatch(loadMessages());
     }, []);
 
-    const messages = useSelector(state => state.messager.messages);
+    const messages = useSelector(state => state.messageReducer.messages);
 
     return (
         <Theme>
@@ -63,7 +63,7 @@ const ChatBox = (props) => {
                                 <NoMessageTxt>Hi there ! There is no message yet !</NoMessageTxt>
                             </NoMessageContainer>
                             :
-                            <MessageList messages={messages}/>
+                            <MessageList messages={messages} />
                         }
                     </Content>
                     <Separator/>

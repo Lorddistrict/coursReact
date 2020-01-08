@@ -5,11 +5,15 @@ import Theme from "./Theme";
 import styled from 'styled-components';
 import { Provider } from 'react-redux';
 import reducers from "./reducers";
-import {applyMiddleware, compose, createStore} from "redux";
+import {
+    applyMiddleware,
+    compose,
+    createStore
+} from "redux";
 import thunk from "redux-thunk";
 
 const Container = styled.div`
-    background-image: url(background.jpg);
+    background-image: url(background.png);
 `;
 const Filter = styled.div`
     position: absolute;
@@ -50,7 +54,7 @@ function App() {
 
     const loader = setTimeout(() => {
         setLoading(false);
-    }, 1000);
+    }, 100);
 
     return (
         <Provider store={store}>
@@ -59,7 +63,7 @@ function App() {
                     {loading
                         ?
                         <LoaderContainer>
-                            <img src="loader2.gif" />
+                            <img src="loader2.gif" alt="Loader" />
                         </LoaderContainer>
                         :
                         <>

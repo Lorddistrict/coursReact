@@ -1,19 +1,18 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import MessageItem from "./MessageItem";
 import Theme from "../../Theme";
 import styled from "styled-components";
 import "./MessageList.css";
-import {loadMessages} from "../../actions/messager";
-import {useDispatch} from "react-redux";
 
 const Container = styled.div`
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    height: 75%;
+    height: 97%;
 `;
 
 const MessageList = (data) => {
+
     const messages = data.messages;
 
     return (
@@ -23,7 +22,7 @@ const MessageList = (data) => {
                     return (
                         <MessageItem
                             key={i}
-                            author={message.username}
+                            username={message.username}
                             message={message.message}
                         />
                     )

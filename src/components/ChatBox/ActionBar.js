@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from "styled-components";
 import Theme from "../../Theme";
 import { useDispatch } from 'react-redux';
-import { addMessage } from "../../actions/messager";
+import { addMessage } from "../../actions/messageAction";
 
 const Container = styled.div`
     display: flex;

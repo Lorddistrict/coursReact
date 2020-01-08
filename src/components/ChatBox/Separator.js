@@ -7,6 +7,7 @@ const Line = styled.hr`
     margin: 10px;
     border: 1px solid transparent;
     opacity: 0.3;
+    width: 96%;
 `;
 
 const Separator = () => {

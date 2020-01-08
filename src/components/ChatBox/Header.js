@@ -8,14 +8,20 @@ const Container = styled.div`
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
-    padding-left: 10px;
+    padding-left: 15px;
 `;
-
+const Insider = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    width: 98%;
+    margin-top: 5px;
+`;
 const Logo = styled.img`
     height: 50px;
     width: 50px;
 `;
-
 const Title = styled.h2`
     padding-left: 10px;
     color: ${props => `${props.theme.colors.discordWhite}`};
@@ -25,10 +31,12 @@ const Header = () => {
     return (
         <Theme>
             <Container>
-                <Logo src="discord.png" alt="Dofus"/>
-                <Title>Discord</Title>
+                <Insider>
+                    <Logo src="discord.png" alt="Dofus"/>
+                    <Title>Discord</Title>
+                </Insider>
             </Container>
-            <Separator/>
+            <Separator />
         </Theme>
     );
 };
