@@ -3,6 +3,8 @@ import MessageItem from "./MessageItem";
 import Theme from "../../Theme";
 import styled from "styled-components";
 import "./MessageList.css";
+import {loadMessages} from "../../actions/messager";
+import {useDispatch} from "react-redux";
 
 const Container = styled.div`
     display: flex;
@@ -12,7 +14,6 @@ const Container = styled.div`
 `;
 
 const MessageList = (data) => {
-
     const messages = data.messages;
 
     return (

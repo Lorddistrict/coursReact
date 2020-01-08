@@ -1,4 +1,4 @@
-import {ADD_MESSAGE, ADD_MESSAGE_ERROR, ADD_MESSAGE_SUCCESS} from "../constants/ActionsTypes";
+import {ADD_MESSAGE_SUCCESS, LOAD_MESSAGES_SUCCESS} from "../constants/ActionsTypes";
 
 const initialState = {
     messages: [],
@@ -6,29 +6,20 @@ const initialState = {
 
 const messager = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE:
+        case ADD_MESSAGE_SUCCESS:
             return {
                 messages: [
                     ...state.messages,
                     {
                         username: action.messageObj.username,
-                        message: action.messageObj.message
+                        message: action.messageObj.message,
+                        sentAt: action.messageObj.sentAt,
                     }
                 ],
             };
-        case ADD_MESSAGE_SUCCESS:
+        case LOAD_MESSAGES_SUCCESS:
             return {
-                message: [
-                    ...state.messages,
-                ],
-                type: 'Success',
-            };
-        case ADD_MESSAGE_ERROR:
-            return {
-                message: [
-                    ...state.messages,
-                ],
-                type: 'Error',
+                messages: action.messages
             };
         default:
             return state;

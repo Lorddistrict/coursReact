@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "./Header";
 import MessageList from "./MessageList";
 import ActionBar from "./ActionBar";
 import Separator from "./Separator";
 import Theme from "../../Theme";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {loadMessages} from "../../actions/messager";
 
 const Container = styled.div`
     position: relative;
@@ -41,6 +42,11 @@ const NoMessageTxt = styled.span`
 `;
 
 const ChatBox = (props) => {
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(loadMessages());
+    }, []);
 
     const messages = useSelector(state => state.messager.messages);
 
