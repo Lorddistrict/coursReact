@@ -40,7 +40,7 @@ const NoMessageTxt = styled.span`
     color: ${props => `${props.theme.colors.discordLightGrey}`};
 `;
 
-const ChatBox = () => {
+const ChatBox = (props) => {
 
     const messages = useSelector(state => state.messager.messages);
 
@@ -50,13 +50,13 @@ const ChatBox = () => {
                 <Insider>
                     <Header/>
                     <Content>
-                        {messages.length === 0 &&
+                        {messages.length === 0
+                            ?
                             <NoMessageContainer>
                                 <NoMessageImg src="monster.png" />
                                 <NoMessageTxt>Hi there ! There is no message yet !</NoMessageTxt>
                             </NoMessageContainer>
-                        }
-                        {messages.length > 0 &&
+                            :
                             <MessageList messages={messages}/>
                         }
                     </Content>

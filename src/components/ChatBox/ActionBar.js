@@ -84,7 +84,7 @@ const ActionBar = () => {
                         type="text"
                         name="message"
                         placeholder="Message #general"
-                        // value={ message }
+                        value={ message }
                     />
                     <EraserButton onClick={ handleEraser }>x</EraserButton>
                     <Button onClick={ handleSendMessage }>Send</Button>
