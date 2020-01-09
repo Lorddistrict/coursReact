@@ -20,7 +20,7 @@ const Insider = styled.div`
 `;
 const Input = styled.input`
     border-radius: 5px;
-    box-shadow: 0;
+    box-shadow: none;
     border: 1px solid transparent;
     padding: 10px;
     padding-left: 10px;
@@ -30,7 +30,7 @@ const Input = styled.input`
 `;
 const EraserButton = styled.button`
     border-radius: 0;
-    box-shadow: 0;
+    box-shadow: none;
     border: 1px solid transparent;
     background-color: ${props => `${props.theme.colors.discordChatBox}`};
     color: ${props => `${props.theme.colors.discordLightGrey}`};
@@ -52,12 +52,15 @@ const Button = styled.button`
 const ActionBar = () => {
 
     const dispatch = useDispatch();
-
     const [message, setMessage] = useState('');
 
     const handleSendMessage = () => {
         let currentDate = new Date();
-        let messageObj = { username: 'Me', message: message, sentAt: currentDate };
+        let messageObj = {
+            username: 'Me',
+            message: message,
+            sentAt: currentDate
+        };
 
         if (message !== '') {
             dispatch(addMessage(messageObj));

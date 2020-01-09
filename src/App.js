@@ -11,6 +11,7 @@ import {
     createStore
 } from "redux";
 import thunk from "redux-thunk";
+import LoginBox from "./components/LoginBox/LoginBox";
 
 const Container = styled.div`
     background-image: url(background.png);
@@ -67,8 +68,9 @@ function App() {
                         </LoaderContainer>
                         :
                         <>
-                            <ChatBox loading={loading} />
-                            <Filter/>
+                            {/*<ChatBox loading={loading} />*/}
+                            <LoginBox />
+                            <Filter />
                         </>
                     }
 
