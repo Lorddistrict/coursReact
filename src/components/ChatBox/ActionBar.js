@@ -56,14 +56,12 @@ const ActionBar = () => {
 
     const handleSendMessage = () => {
         let currentDate = new Date();
-        let messageObj = {
-            username: user.username,
-            message: message,
-            sentAt: currentDate.toString()
-        };
+        let newMessage = message;
+        let username = user.username;
+        let sentAt = currentDate.toString();
 
-        if (message !== '') {
-            dispatch(addMessage(messageObj));
+        if (newMessage !== '') {
+            dispatch(addMessage(newMessage, username, sentAt));
             handleResetField();
         }
     };

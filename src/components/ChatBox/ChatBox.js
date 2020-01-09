@@ -41,14 +41,10 @@ const NoMessageTxt = styled.span`
     color: ${props => `${props.theme.colors.discordLightGrey}`};
 `;
 
-const ChatBox = (props) => {
-
-    const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch(loadMessages());
-    }, []);
+const ChatBox = () => {
 
     const messages = useSelector(state => state.messageReducer.messages);
+    console.log(messages);
 
     return (
         <Theme>

@@ -1,36 +1,30 @@
 import * as types from '../constants/ActionsTypes';
-import axios from 'axios';
+import webSocket from "../services/websocket";
 
-export const addMessage = (messageObj) => ({
-    type: types.ADD_MESSAGE_SUCCESS,
-    messageObj,
-});
+// export const addMessage = (message, username, sentAt) => ({
+//     type: types.ADD_MESSAGE,
+//     message,
+//     username,
+//     sentAt
+// });
 
-export const removeMessage = index => {
-    return {
-        type: types.REMOVE_MESSAGE_ACTION,
-        index
-    };
+export const addMessage = (message, username, sentAt) => {
+    return (dispatch) => {
+        const action = {
+            type: types.ADD_MESSAGE,
+            message,
+            username,
+            sentAt
+        };
+        webSocket.send(JSON.stringify(action));
+
+        return dispatch(action);
+    }
 };
 
-export const loadMessages = () => {
-    return async dispatch => {
-        dispatch({ type: types.LOAD_MESSAGES_PENDING });
-
-        let url = 'https://my-json-server.typicode.com/tlenclos/formation-react-fake-server/messages';
-        return axios
-            .get(url)
-            .then(response => {
-                dispatch({
-                    type: types.LOAD_MESSAGES_SUCCESS,
-                    messages: response.data
-                });
-            })
-            .catch(error => {
-                dispatch({
-                    type: types.LOAD_MESSAGES_ERROR,
-                    error: error
-                });
-            });
+export const removeMessage = (index) => {
+    return {
+        type: types.REMOVE_MESSAGE,
+        index
     };
 };

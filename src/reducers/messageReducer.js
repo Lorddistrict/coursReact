@@ -1,6 +1,6 @@
 import {
-    ADD_MESSAGE_SUCCESS,
-    REMOVE_MESSAGE_ACTION,
+    ADD_MESSAGE,
+    REMOVE_MESSAGE,
     LOAD_MESSAGES_SUCCESS
 } from "../constants/ActionsTypes";
 
@@ -10,18 +10,18 @@ const initialState = {
 
 const messageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE_SUCCESS:
+        case ADD_MESSAGE:
             return {
                 messages: [
                     ...state.messages,
                     {
-                        username: action.messageObj.username,
-                        message: action.messageObj.message,
-                        sentAt: action.messageObj.sentAt,
+                        username: action.username,
+                        message: action.message,
+                        sentAt: action.sentAt,
                     }
                 ],
             };
-        case REMOVE_MESSAGE_ACTION:
+        case REMOVE_MESSAGE:
             return {
                 messages: state.messages.filter((message, i) => i !== action.index)
             };
