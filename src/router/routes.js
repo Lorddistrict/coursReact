@@ -19,6 +19,7 @@ const AppRoutes = (props) => {
                 <ChatBox />
             </Route>
             { loggedIn ? <Redirect to="/chat" loading={ props.loading } /> : <LoginBox /> }
+            {/*{ loggedIn ? <Redirect to="/chat" loading={ props.loading } /> : <Redirect to="/chat" loading={ props.loading } /> }*/}
         </Router>
     );
 };

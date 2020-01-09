@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from "styled-components";
 import Theme from "../../Theme";
-import { useDispatch } from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { addMessage } from "../../actions/messageAction";
 
 const Container = styled.div`
@@ -23,7 +23,6 @@ const Input = styled.input`
     box-shadow: none;
     border: 1px solid transparent;
     padding: 10px;
-    padding-left: 10px;
     width: 90%;
     background-color: ${props => `${props.theme.colors.discordChatBox}`};
     color: ${props => `${props.theme.colors.discordLightGrey}`};
@@ -53,13 +52,14 @@ const ActionBar = () => {
 
     const dispatch = useDispatch();
     const [message, setMessage] = useState('');
+    const user = useSelector(state => state.userReducer.user);
 
     const handleSendMessage = () => {
         let currentDate = new Date();
         let messageObj = {
-            username: 'Me',
+            username: user.username,
             message: message,
-            sentAt: currentDate
+            sentAt: currentDate.toString()
         };
 
         if (message !== '') {
