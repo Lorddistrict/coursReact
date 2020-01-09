@@ -20,7 +20,7 @@ const Insider = styled.div`
     background-color: ${props => `${props.theme.colors.discordGrey}`};
     width: 60%;
     height: 80%;
-    border-width: 1px solid transparent;
+    border: 1px solid transparent;
 `;
 const Content = styled.div`
     height: 75%;

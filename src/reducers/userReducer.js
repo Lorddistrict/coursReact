@@ -3,16 +3,17 @@ import {
 } from "../constants/ActionsTypes";
 
 const initialState = {
-    user: [],
+    user: {},
 };
 
 const userReducer = (state = initialState, action) => {
+    console.log(action);
     switch (action.type) {
         case LOGIN_USER_SUCCESS:
             return {
                 user: {
-                    email: action.user.email,
-                    username: action.user.username,
+                    email: action.userObj.email,
+                    username: action.userObj.username,
                 }
             };
         default:

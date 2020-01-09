@@ -1,30 +1,15 @@
 import React, {useState} from 'react';
 import './App.css';
-import ChatBox from "./components/ChatBox/ChatBox";
 import Theme from "./Theme";
 import styled from 'styled-components';
 import { Provider } from 'react-redux';
 import reducers from "./reducers";
-import {
-    applyMiddleware,
-    compose,
-    createStore
-} from "redux";
+import { applyMiddleware, compose, createStore } from "redux";
 import thunk from "redux-thunk";
-import LoginBox from "./components/LoginBox/LoginBox";
+import AppRoutes from "./router/routes";
 
 const Container = styled.div`
     background-image: url(background.png);
-`;
-const Filter = styled.div`
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: ${props => `${props.theme.colors.discordBlack}`};
-    opacity: 0.5;
-    z-index: 1;
 `;
 const LoaderContainer = styled.div`
     display: flex;
@@ -36,8 +21,7 @@ const LoaderContainer = styled.div`
 `;
 
 const loggerMiddleware = store => next => action => {
-    console.log('---');
-    console.log(action);
+    //console.log(action);
     next(action);
 };
 
@@ -67,13 +51,8 @@ function App() {
                             <img src="loader2.gif" alt="Loader" />
                         </LoaderContainer>
                         :
-                        <>
-                            {/*<ChatBox loading={loading} />*/}
-                            <LoginBox />
-                            <Filter />
-                        </>
+                        <AppRoutes loading={ loading } />
                     }
-
                 </Container>
             </Theme>
         </Provider>

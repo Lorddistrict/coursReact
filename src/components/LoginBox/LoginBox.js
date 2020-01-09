@@ -48,7 +48,7 @@ const InputName = styled.span`
   margin-bottom: 10px;
 `;
 const Input = styled.input`
-  background-color: ${props => `${props.theme.colors.discordDarkGrey}`};
+  background-color: ${props => `${props.theme.colors.discordDarkGrey}`}!important;
   border-radius: 3px;
   border: 1px solid ${props => `${props.theme.colors.discordDarkDarkGrey}`};
   width: 300px;
@@ -85,6 +85,7 @@ const LoginBox = () => {
 
     const handleSendUser = () => {
         if (user.email !== '' && user.username !== '') {
+            setUser(user);
             dispatch(loginUser(user));
         }
     };
@@ -113,6 +114,7 @@ const LoginBox = () => {
 
     return (
         <Theme>
+
             <Container>
                 <Box>
                     <HeaderContainer>
