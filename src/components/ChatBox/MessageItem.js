@@ -88,12 +88,16 @@ const MessageItem = (props) => {
                             <CardInline>
                                 <CardAuthor>@{ props.username }</CardAuthor>
                                 <CardDate>
-                                    &nbsp;at&nbsp;
-                                    {new Intl.DateTimeFormat('en-GB', {
-                                        year: 'numeric',
-                                        month: 'long',
-                                        day: '2-digit'
-                                    }).format(new Date(props.sentAt))}
+                                    {props.sentAt !== undefined &&
+                                        <>
+                                            &nbsp;at&nbsp;
+                                            {new Intl.DateTimeFormat('en-GB', {
+                                                year: 'numeric',
+                                                month: 'long',
+                                                day: '2-digit'
+                                            }).format(new Date(props.sentAt))}
+                                        </>
+                                    }
                                 </CardDate>
                             </CardInline>
                             <CardMessage>{ props.message }</CardMessage>
