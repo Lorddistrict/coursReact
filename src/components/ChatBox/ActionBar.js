@@ -64,10 +64,11 @@ const ActionBar = () => {
 
         if (message !== '') {
             dispatch(addMessage(messageObj));
+            handleResetField();
         }
     };
 
-    const handleEraser = () => {
+    const handleResetField = () => {
         setMessage('');
     };
 
@@ -93,7 +94,7 @@ const ActionBar = () => {
                         placeholder="Message #general"
                         value={ message }
                     />
-                    <EraserButton onClick={ handleEraser }>x</EraserButton>
+                    <EraserButton onClick={ handleResetField }>x</EraserButton>
                     <Button onClick={ handleSendMessage }>Send</Button>
                 </Insider>
             </Container>

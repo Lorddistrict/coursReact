@@ -9,7 +9,7 @@ import thunk from "redux-thunk";
 import AppRoutes from "./router/routes";
 
 const Container = styled.div`
-    background-image: url(background.png);
+    background-image: url("background.png");
 `;
 const LoaderContainer = styled.div`
     display: flex;
@@ -21,7 +21,7 @@ const LoaderContainer = styled.div`
 `;
 
 const loggerMiddleware = store => next => action => {
-    //console.log(action);
+    //console.log('middleware');
     next(action);
 };
 
@@ -40,7 +40,7 @@ function App() {
     const loader = setTimeout(() => {
         setLoading(false);
     }, 2000);
-    // }, 100);
+    // }, 100); // Test timing
 
     return (
         <Provider store={store}>
@@ -49,7 +49,7 @@ function App() {
                     {loading
                         ?
                         <LoaderContainer>
-                            <img src="loader2.gif" alt="Loader" />
+                            <img src="loader2.gif" alt="Loader" width="30%" height="auto" />
                         </LoaderContainer>
                         :
                         <AppRoutes loading={ loading } />

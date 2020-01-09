@@ -1,7 +1,12 @@
-import React  from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Theme from "../../Theme";
 import styled from "styled-components";
+import "./MessageList.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from '@fortawesome/free-solid-svg-icons'
+import { removeMessage } from "../../actions/messageAction";
+import {useDispatch} from "react-redux";
 
 const Container = styled.div`
     display: flex;
@@ -10,6 +15,7 @@ const Container = styled.div`
 `;
 const Card = styled.div`
     display: flex;
+    justify-content: space-between;
     width: 95%;
     padding: 10px;
     margin-bottom: 20px;
@@ -51,8 +57,24 @@ const CardMessage = styled.span`
     text-align: justify;
     margin-top: 15px;
 `;
+const TrashContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 const MessageItem = (props) => {
+
+    const dispatch = useDispatch();
+    const [hover, setHover] = useState(false);
+
+    const handleDeleteMessage = (index) => {
+        dispatch(removeMessage(index));
+    };
+
+    const handleToggleHover = () => {
+        setHover(!hover);
+    };
 
     return (
         <Theme>
@@ -77,6 +99,15 @@ const MessageItem = (props) => {
                             <CardMessage>{ props.message }</CardMessage>
                         </CardHorizontal>
                     </CardContent>
+                    <TrashContainer>
+                        <FontAwesomeIcon
+                            icon={ faTrash }
+                            onMouseEnter={ handleToggleHover }
+                            onMouseLeave={ handleToggleHover }
+                            style={{ cursor: "pointer", color: (hover ? '#E13545' : '#171a1d') }}
+                            onClick={() => handleDeleteMessage(props.index) }
+                        />
+                    </TrashContainer>
                 </Card>
             </Container>
         </Theme>

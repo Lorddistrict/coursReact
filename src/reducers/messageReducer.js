@@ -1,5 +1,6 @@
 import {
     ADD_MESSAGE_SUCCESS,
+    REMOVE_MESSAGE_ACTION,
     LOAD_MESSAGES_SUCCESS
 } from "../constants/ActionsTypes";
 
@@ -19,6 +20,10 @@ const messageReducer = (state = initialState, action) => {
                         sentAt: action.messageObj.sentAt,
                     }
                 ],
+            };
+        case REMOVE_MESSAGE_ACTION:
+            return {
+                messages: state.messages.filter((message, i) => i !== action.index)
             };
         case LOAD_MESSAGES_SUCCESS:
             return {
