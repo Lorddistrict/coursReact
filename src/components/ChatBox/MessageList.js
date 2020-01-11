@@ -1,8 +1,9 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import MessageItem from "./MessageItem";
 import Theme from "../../Theme";
 import styled from "styled-components";
 import "./MessageList.css";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
     display: flex;
@@ -32,6 +33,10 @@ const MessageList = (data) => {
             </Container>
         </Theme>
     );
+};
+
+MessageItem.propTypes = {
+    message: PropTypes.string.isRequired,
 };
 
 export default MessageList;

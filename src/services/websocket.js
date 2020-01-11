@@ -1,6 +1,6 @@
 import configStore from "../store/configStore";
 
-const webSocket = new WebSocket("ws://srrj6.sse.codesandbox.io/");
+const webSocket = new WebSocket("ws://51.77.221.45:8080");
 
 webSocket.onmessage = (event) => {
 

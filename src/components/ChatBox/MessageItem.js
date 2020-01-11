@@ -40,9 +40,7 @@ const CardImage = styled.img`
     height: 40px;
     width: 40px;
 `;
-const CardInline = styled.div`
-
-`;
+const CardInline = styled.div``;
 const CardAuthor = styled.span`
     font-weight: bold;
     margin-bottom: 10px;
@@ -121,7 +119,6 @@ const MessageItem = (props) => {
 MessageItem.propTypes = {
     username: PropTypes.string.isRequired,
     message: PropTypes.string.isRequired,
-    sentAt: PropTypes.string.isRequired
 };
 
 export default MessageItem;

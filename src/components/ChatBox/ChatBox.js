@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React  from 'react';
 import Header from "./Header";
 import MessageList from "./MessageList";
 import ActionBar from "./ActionBar";
 import Separator from "./Separator";
 import Theme from "../../Theme";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
-import { loadMessages } from "../../actions/messageAction";
+import { useSelector } from "react-redux";
+import MessageItem from "./MessageItem";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
     position: relative;
@@ -52,14 +53,14 @@ const ChatBox = () => {
                 <Insider>
                     <Header/>
                     <Content>
-                        {messages.length === 0
+                        { messages.length === 0
                             ?
                             <NoMessageContainer>
                                 <NoMessageImg src="monster.png" />
                                 <NoMessageTxt>Hi there ! There is no message yet !</NoMessageTxt>
                             </NoMessageContainer>
                             :
-                            <MessageList messages={messages} />
+                            <MessageList messages={ messages } />
                         }
                     </Content>
                     <Separator/>

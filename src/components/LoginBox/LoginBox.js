@@ -3,6 +3,8 @@ import Theme from "../../Theme";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../actions/userAction";
+import MessageItem from "../ChatBox/MessageItem";
+import PropTypes from "prop-types";
 
 const Container = styled.div`
   position: relative;
@@ -148,6 +150,11 @@ const LoginBox = () => {
             </Container>
         </Theme>
     );
+};
+
+MessageItem.propTypes = {
+    email: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
 };
 
 export default LoginBox;
