@@ -1,6 +1,6 @@
 import configStore from "../store/configStore";
 
-const webSocket = new WebSocket(`wss://${process.env.REACT_APP_WS_ADRESS}:${process.env.REACT_APP_WS_PORT}`);
+const webSocket = new WebSocket(`${process.env.REACT_APP_WS_PROTOCOL}://${process.env.REACT_APP_WS_ADRESS}:${process.env.REACT_APP_WS_PORT}`);
 
 webSocket.onmessage = (event) => {
 
