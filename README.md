@@ -22,7 +22,7 @@ and I did my best to make it beautiful as I can
 
 Good job Captain obvious 
 
-## Running on Linux
+## Running on Linux (dev)
 
 Thanks not to ask how running it on Windows, I will not answer :D
 
@@ -40,7 +40,7 @@ Run :
 
 A new browser window is going to open. In case it won't you can go to :
 
-`http://loaclhost:8080`
+`http://localhost:8080`
 
 ## Running your own server
 
