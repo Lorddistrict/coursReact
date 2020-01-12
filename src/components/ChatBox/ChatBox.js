@@ -24,7 +24,7 @@ const Insider = styled.div`
     border: 1px solid transparent;
 `;
 const Content = styled.div`
-    height: 70%;
+    height: 75%;
 `;
 const NoMessageContainer = styled.div`
     display: flex;
