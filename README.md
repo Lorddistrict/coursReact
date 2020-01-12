@@ -7,11 +7,11 @@ Please read the following steps making the app running
 
 In the project directory, you can edit the .env file:
 
-SET : `REACT_APP_WS_ADRESS` to `react.realmit.io`
+SET : `REACT_APP_WS_ADRESS` = `react.realmit.io`
 
-SET : `REACT_APP_WS_PORT=` to `443`
+SET : `REACT_APP_WS_PORT` = `443`
 
-SET : `REACT_APP_WS_PROTOCOL` to `wss`
+SET : `REACT_APP_WS_PROTOCOL` = `wss`
 
 ## Render
 
